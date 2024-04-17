@@ -66,7 +66,7 @@ lvcreate --name images --size 12G vg0
 lvcreate --name system --size 36G vg0
 lvcreate --name luks-swap  --size $(grep MemTotal /proc/meminfo | awk '{print $2}')K vg0
 lvcreate --name luks-registry --size 128M vg0
-lvcreate --name luks-home --size 64G vg0
+lvcreate --name luks-home --size 48G vg0
 
 echo -n "${DEFAULT_DISK_PASS_1}" | cryptsetup luksFormat /dev/vg0/luks-home
 echo -n "${DEFAULT_DISK_PASS_1}" | cryptsetup luksFormat /dev/vg0/luks-registry
